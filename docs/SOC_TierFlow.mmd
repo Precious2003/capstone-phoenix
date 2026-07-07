@@ -1,0 +1,16 @@
+flowchart TD
+  A[Alert Generated] --> B[Tier-1 Analyst\n(Alert Triage)]
+  B --> C{False Positive?}
+  C -- Yes --> D[Close Ticket]
+  C -- No --> E[Tier-2 Analyst\n(Investigation)]
+  E --> F[Tier-3 Analyst\n(Threat Hunting)]
+  F --> G[Incident Response]
+  G --> H[Closure]
+
+  subgraph Tiers
+    B
+    E
+    F
+  end
+
+  classDef tier fill:#f9f,stroke:#333,stroke-width:1px;

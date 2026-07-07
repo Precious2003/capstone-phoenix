@@ -1,0 +1,7 @@
+{
+  "title": "Sample SOC Overview",
+  "panels": [
+    { "type": "markdown", "content": "# SOC Overview\nSample widgets for alerts, top talkers, and recent connections." },
+    { "type": "visualization", "id": "alerts-table" }
+  ]
+}

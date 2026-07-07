@@ -1,0 +1,21 @@
+---
+- hosts: all
+  become: true
+  vars:
+    so_install: false
+  tasks:
+    - name: Ensure python3 present
+      apt:
+        name: python3
+        state: present
+
+- hosts: securityonion
+  become: true
+  vars:
+    so_install: true
+  tasks:
+    - name: Copy Security Onion installation notes
+      copy:
+        dest: /home/vagrant/SECURITY_ONION_README.md
+        content: |
+          Run `sudo so-install` on the Security Onion VM and follow interactive prompts.

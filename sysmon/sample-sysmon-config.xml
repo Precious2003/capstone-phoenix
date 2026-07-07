@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<Sysmon schemaversion="4.50">
+  <!-- Minimal sample — use SwiftOnSecurity for production -->
+  <EventFiltering>
+    <ProcessCreate onmatch="include" />
+    <NetworkConnect onmatch="include" />
+    <FileCreateTime onmatch="exclude" />
+    <ImageLoad onmatch="include" />
+  </EventFiltering>
+</Sysmon>

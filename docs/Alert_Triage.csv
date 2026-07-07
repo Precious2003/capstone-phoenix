@@ -1,0 +1,4 @@
+Alert ID,Description,Action Taken,Escalation
+A001,Multiple DNS requests,Verified normal browsing,No
+A002,PowerShell execution,Checked Sysmon process tree,No
+A003,Large outbound transfer,Correlated Zeek logs,Yes

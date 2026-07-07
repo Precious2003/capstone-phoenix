@@ -1,0 +1,30 @@
+# Vagrantfile — SOC homelab (VirtualBox)
+Vagrant.configure("2") do |config|
+  config.vm.define "securityonion" do |so|
+    so.vm.box = "ubuntu/focal64"
+    so.vm.hostname = "securityonion"
+    so.vm.memory = 8192
+    so.vm.cpus = 4
+    so.vm.network "private_network", ip: "192.168.56.10"
+    so.vm.provision "ansible" do |ansible|
+      ansible.playbook = "../ansible/site_vagrant.yml"
+      ansible.inventory_path = "../ansible/inventory_vagrant.ini"
+    end
+  end
+
+  config.vm.define "zeek" do |z|
+    z.vm.box = "ubuntu/focal64"
+    z.vm.hostname = "zeek"
+    z.vm.memory = 2048
+    z.vm.cpus = 2
+    z.vm.network "private_network", ip: "192.168.56.11"
+  end
+
+  config.vm.define "win10" do |w|
+    w.vm.box = "gusztavvargadr/windows-10" # example box for testing
+    w.vm.hostname = "win10"
+    w.vm.memory = 4096
+    w.vm.cpus = 2
+    w.vm.network "private_network", ip: "192.168.56.12"
+  end
+end
